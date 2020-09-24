@@ -8,7 +8,7 @@ cache:
     - .cache
 script:
   - yarn test
-  - yarn run deploy # Générer des fichiers HTML statiques
+  - yarn run build # Générer des fichiers HTML statiques
 
 # Voici la partie magique
 deploy:
@@ -16,7 +16,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   # Répertoire où se trouvent les fichiers générés
-  local_dir: public
+  local_dir: build
   # Github security/auth token
   github_token: $GITHUB_TOKEN
   # Conserve les anciens fichiers/constructions des déploiements précédents
