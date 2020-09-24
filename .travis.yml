@@ -24,7 +24,7 @@ deploy:
   # Conserve les anciens fichiers/constructions des déploiements précédents
   # keep_history: true
   # La branche Git sur laquelle on souhaite déployer (master, gh-pages, foo...)
-  # target_branch: gh-pages
+  target_branch: gh-pages
   on:
     # Quelle branche déclenchera le déploiement
-    branch: master
+    branch: gh-pages
