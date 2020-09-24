@@ -20,13 +20,13 @@ function App() {
       <header className="App-header">
         <h1>conversion rate : $ USD - € EUR</h1>
         <h3>{conversion ? conversion : ''} : rate $ / €</h3>
-        <h2>counter</h2>
+        <h2>CI-CD</h2>
         {/* <Button label="click me please"></Button> 
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p> */}
         <div className="d-inline-flex p-2">
-          <button id="increment-btn" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
+          <button id="increment-btn mr-2" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
             onClick={() => setCounter(counter + 1)}>+ Increment</button>
           <button id="decrement-btn" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
             onClick={() => setCounter(counter > 0 ? counter - 1 : 0)}>- Decrement</button>
