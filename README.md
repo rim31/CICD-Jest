@@ -1,7 +1,9 @@
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
-# CI-CD  and Jest demo
+# CI-CD  and Jest demo : http://rim31.github.io/CICD-Jest
 Implementing Continous Integration and Deployement , with Jest, React, Travis - circleCI
 
 
