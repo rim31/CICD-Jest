@@ -8,7 +8,7 @@ cache:
     - .cache
 script:
   - yarn test
-  - yarn run build # Générer des fichiers HTML statiques
+  - yarn run deploy # Générer des fichiers HTML statiques
 
 # Voici la partie magique
 deploy:
