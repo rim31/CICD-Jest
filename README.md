@@ -24,6 +24,38 @@ github-pages
 yarn run deploy
 ```
 
+# TRAVIS-CLI
+
+- link travis with your github : OAuth / just log in and authorize
+
+- create a .travis.yml file
+```
+language: node_js
+node_js:
+  - 12.0.0
+cache: yarn
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+  - yarn run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: gh-pages
+
+```
+
+configure travis and github
+add github_token from github developer settings into the project of travis
+
+a then 
+git push
 
 
 ## Available Scripts
