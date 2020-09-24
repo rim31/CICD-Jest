@@ -7,7 +7,22 @@ Implementing Continous Integration and Deployement , with Jest, React, Travis - 
 
 ## Github-pages :
 
-modify : ""
+modify : package.json
+
+add these :
+```
+  "homepage": "http://rim31.github.io/CICD-Jest",
+...
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
+```
+
+select in github setthing :
+github-pages
+
+```
+yarn run deploy
+```
 
 
 
