@@ -6,6 +6,8 @@ cache:
   directories:
     - public
     - .cache
+install:
+  - yarn install
 script:
   - yarn test
   - yarn run build # Générer des fichiers HTML statiques
@@ -20,9 +22,9 @@ deploy:
   # Github security/auth token
   github_token: $GITHUB_TOKEN
   # Conserve les anciens fichiers/constructions des déploiements précédents
-  keep_history: true
+  # keep_history: true
   # La branche Git sur laquelle on souhaite déployer (master, gh-pages, foo...)
-  target_branch: gh-pages
+  # target_branch: gh-pages
   on:
     # Quelle branche déclenchera le déploiement
-    branch: gh-pages
+    branch: master
