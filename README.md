@@ -26,6 +26,7 @@ github-pages
 yarn run deploy
 ```
 
+it will take the build folder and push it into the 
 # TRAVIS-CLI
 
 - link travis with your github : OAuth / just log in and authorize

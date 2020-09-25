@@ -33,14 +33,18 @@ describe("Counter Testing", () => {
     expect(wrapper.find("#decrement-btn").text()).toBe('- Decrement');
   })
 
+  test('implement Increment button with a text', () => {
+    expect(wrapper.find("#increment-btn").text()).toBe('+ Increment');
+  })
+
   test('check the initial state value of a div ', () => {
     expect(wrapper.find("#counter-value").text()).toBe("0");
   })
 
-  // test('it will render the click and increment the value', () => {
-  //   wrapper.find("#increment-btn").simulate("click");// simulating th click on the button
-  //   expect(wrapper.find("#counter-value").text()).toBe("1");
-  // })
+  test('it will render the click and increment the value', () => {
+    wrapper.find("#increment-btn").simulate("click");// simulating th click on the button
+    expect(wrapper.find("#counter-value").text()).toBe("1");
+  })
 
   // test('it will render the click increment and decrement the value', () => {
   //   wrapper.find("#increment-btn").simulate("click");// simulating th click on the button
