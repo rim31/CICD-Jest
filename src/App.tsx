@@ -3,6 +3,7 @@ import './App.css';
 import { convert } from './components/utils/Currency';
 // import Button from './components/button/Button';
 import Counter from './components/Counter/Counter';
+import Forecast from './components/Weather/Forecast';
 
 function App() {
   const [conversion, setConversion] = React.useState<string>("");
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Forecast />
         <h1>conversion rate : $ USD - € EUR</h1>
         <h3>{conversion ? conversion : ''} : rate $ / €</h3>
         <h2>CI-CD</h2>
