@@ -27,4 +27,4 @@ deploy:
   target_branch: gh-pages
   on:
     # Quelle branche déclenchera le déploiement
-    branch: gh-pages
+    branch: master
