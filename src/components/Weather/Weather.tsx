@@ -10,7 +10,6 @@ export const ForecastSevenDays = async (lat: string, lon: string) => {
       "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=metric&exclude=minutely&appid=" + API_KEY
     );
     if (response) {
-      console.log("7 days --> ", response)
       return response;
     } else {
       return "";
@@ -31,8 +30,6 @@ const FetchData = async (query: any) => {
       }
     });
     if (response) {
-      // let sevenDays: any = forecast(response.data.coord.lat, response.data.coord.lon)
-      // return sevenDays; 
       return response;
     } else {
       return "";

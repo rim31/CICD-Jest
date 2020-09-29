@@ -24,7 +24,6 @@ export default function Forecast() {
       setIsLoading(true);
       const res: any = await FetchData(query.toLowerCase());
       if (res) {
-        console.log("response : ===> ", res.data);
         setWeather(res.data);
         const response = await ForecastSevenDays(res.data.coord.lat, res.data.coord.lon);
         setWeatherSevenDays(response);
@@ -77,7 +76,7 @@ export default function Forecast() {
               </div>
               <div className="info">
                 <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                <p style={{ color: "whitesmoke" }}>{weather.weather[0].description}</p>
+                <p style={{ color: "grey" }}>{weather.weather[0].description}</p>
               </div>
               <SevenDays weatherSevenDays={weatherSevenDays} />
             </div>
