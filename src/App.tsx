@@ -27,9 +27,9 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p> */}
         <div className="d-inline-flex p-2">
-          <button id="increment-btn" className="mr-2" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
+          <button id="increment-btn" className="button mr-2" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
             onClick={() => setCounter(counter + 1)}>+ Increment</button>
-          <button id="decrement-btn" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
+          <button id="decrement-btn" className="button" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
             onClick={() => setCounter(counter > 0 ? counter - 1 : 0)}>- Decrement</button>
         </div>
         <p>Conversion {(counter / parseFloat(conversion)).toFixed(2)} $</p>

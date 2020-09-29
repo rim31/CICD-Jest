@@ -54,12 +54,12 @@ export default function Forecast() {
     <div className="main-container">
       <div>
         <label className="text-center" >Search
-        <input id="search" name="search" type="text" className="search form-control mr-2" placeholder="City..."
+        <input id="search" name="search" type="text" className="search input  mx-2" placeholder="City..."
             value={query} onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
+          <button id="btn-search" type="button" className="button is-info mt-2 mx-2" data-dismiss="modal"
+            //onClick={(e: any) => { console.log(location); setQuery(e.target.value); }}>Search</button>
+            onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
         </label>
-        <button id="btn-search" type="button" className="btn btn-primary ml-2" data-dismiss="modal"
-          //onClick={(e: any) => { console.log(location); setQuery(e.target.value); }}>Search</button>
-          onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
       </div>
       {isLoading ? (
         <div>Loading ...</div>
