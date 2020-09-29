@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Forecast />
         <h1>conversion rate : $ USD - € EUR</h1>
         <h3>{conversion ? conversion : ''} : rate $ / €</h3>
         <h2>CI-CD</h2>
@@ -39,6 +38,7 @@ function App() {
           <span> €</span>
         </div>
       </header>
+      <Forecast />
       <Counter />
     </div>
   );
