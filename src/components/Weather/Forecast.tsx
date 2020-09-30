@@ -60,7 +60,7 @@ export default function Forecast() {
             onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
         </div>
         <div className="control">
-          <button id="btn-search" className="button is-info"
+          <button className="button is-info"
             onClick={(e: any) => { clickSearch(location) }}>Search</button>
         </div>
       </div>
