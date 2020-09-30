@@ -50,14 +50,9 @@ export default function Forecast() {
     }
   }
 
-  React.useEffect(() => {
-    clickSearch("paris");
-    console.log("debug");
-  })
-
   return (
     <div className="main-container">
-      <label className="text-center" >Search a City</label>
+      <label className="text-center subtitle" >Search a city's weather</label>
       <div className="field has-addons has-addons-centered">
         <div className="control">
           <input className="input" type="text" placeholder="City..." value={query}
@@ -68,29 +63,66 @@ export default function Forecast() {
             onClick={(e: any) => { clickSearch(location) }}>Search</button>
         </div>
       </div>
-      {
-        isLoading ? (
-          <progress className="progress is-small is-primary" max="100">loading</progress>
-        ) : (
-            weather.main && (
-              <div className="city">
-                <p className="subtitle">{moment().format("dddd, MMMM Do YYYY")}</p>
-                <p className="city-name">
-                  <span className="title">{weather.name}</span>
-                  <sup className="title">{weather.sys.country} {countryToFlag(weather.sys.country)}</sup>
-                </p>
-                <div className="city-temp ">
-                  <p className="title">Now {Math.round(weather.main.temp)}<sup>°C</sup></p>
-                </div>
-                <div className="info">
-                  <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                  <p style={{ color: "grey" }}>{weather.weather[0].description}</p>
-                </div>
-                <SevenDays weatherSevenDays={weatherSevenDays} />
+      { isLoading && (<progress className="progress is-small is-primary" max="100">loading</progress>)}
+      {/* <body> */}
+      <div className="container">
+        <div className="header">
+          <div className="icon-container">
+            {/* <canvas id="icon" width="100" height="100"> */}
+            {weather.main ?
+              <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+              :
+              <span className="icon">
+                <i className="fas fa-home"></i>
+                {/* <i className="title fa fa-search" style={{ zIndex: 10 }}></i> */}
+              </span>
+            }
+            {/* </canvas> */}
+          </div>
+        </div>
+        <div className="content">
+          <div className="general-information">
+            {/* <div className="location" data-status>Enter a Location</div> */}
+            <div className="location" data-location>Weather in a city</div>
+            <p className="subtitle">{moment().format("dddd, MMMM Do YYYY")}</p>
+          </div>
+          <div className="detail-section">
+            <div className="detail">
+              <div className="subtitle">Now</div>
+              <div className="value" data-wind>{weather.main && (<p style={{ color: "grey" }}>{weather.weather[0].description}</p>
+              )}</div>
+            </div>
+            <div className="detail bordered">
+              <div className="subtitle" style={{ whiteSpace: "nowrap", }}>Temperature</div>
+              <div className="value" data-temperature>{weather.main && (<p>{Math.round(weather.main.temp)}<sup>°C</sup></p>)}</div>
+            </div>
+            <div className="detail">
+              <div className="subtitle">City</div>
+              <div className="value" data-precipitation>
+                {weather.main && (<div>
+                  <span className="value">{weather.name}</span>
+                  <sup className="subtitle">{weather.sys.country} {countryToFlag(weather.sys.country)}</sup>
+                </div>)}
               </div>
-            )
-          )
-      }
+            </div>
+          </div>
+          <div className="city-search-container mt-3">
+            <div className="field has-addons has-addons-centered">
+              <div className="control">
+                <input className="input" type="text" placeholder="City..." value={query}
+                  onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
+              </div>
+              <div className="control">
+                <button id="btn-search" className="button is-info"
+                  onClick={(e: any) => { clickSearch(location) }}>Search</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      {/* </body> */}
+      <SevenDays weatherSevenDays={weatherSevenDays} />
     </div >
   )
 }

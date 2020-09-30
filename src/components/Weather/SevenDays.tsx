@@ -8,6 +8,7 @@ export default function SevenDays(props: any) {
   // React.useEffect(() => { console.log("hour", state.data.hourly) }, [state.data])
   return (
     <div className="block">
+      {state.data && (<p className="title">48h</p>)}
       <div className="ml-1 mr-1" style={{
         display: "flex", flexWrap: "nowrap", overflowX: "auto", boxSizing: "border-box", whiteSpace: "break-spaces", flexDirection: "row",
       }}>
@@ -30,8 +31,8 @@ export default function SevenDays(props: any) {
           )
         }
       </div >
-      <h1>7 days </h1>
-      <div className="box columns">
+      {state.data && (<p className="title">7 days </p>)}
+      <div className="columns">
         {
           state.data && (
             state.data.daily.map((day: any, i: number) => <div key={i} className="column d-inline-flex ml-1 mr-1">

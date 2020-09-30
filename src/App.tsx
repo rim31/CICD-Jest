@@ -23,7 +23,10 @@ function App() {
         <p className="title">Forecast demo </p>
         <p className="subtitle">CICD, Jest, React, api </p>
       </header> */}
-      <div style={{ backgroundColor: "darkgray", minHeight: "100vh" }}>
+      <div className="" style={{
+        background: `linear-gradient(to right, rgb(255, 167, 35), rgb(25, 97, 235))`,
+        minHeight: "100vh"
+      }}>
         <Forecast />
         <Counter />
         <h1>conversion rate : $ USD - € EUR</h1>
