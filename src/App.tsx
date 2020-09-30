@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bulma/css/bulma.css'
 import { convert } from './components/utils/Currency';
 // import Button from './components/button/Button';
 import Counter from './components/Counter/Counter';

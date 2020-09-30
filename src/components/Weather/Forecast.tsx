@@ -52,14 +52,13 @@ export default function Forecast() {
 
   return (
     <div className="main-container">
-      <div>
-        <label className="text-center" >Search
+      <label className="text-center" >Search</label>
+      <div className="d-inline-flex">
         <input id="search" name="search" type="text" className="search input  mx-2" placeholder="City..."
-            value={query} onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
-          <button id="btn-search" type="button" className="button is-info mt-2 mx-2" data-dismiss="modal"
-            //onClick={(e: any) => { console.log(location); setQuery(e.target.value); }}>Search</button>
-            onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
-        </label>
+          value={query} onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
+        <button id="btn-search" type="button" className="button is-info mt-2 mx-2" data-dismiss="modal"
+          //onClick={(e: any) => { console.log(location); setQuery(e.target.value); }}>Search</button>
+          onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
       </div>
       {isLoading ? (
         <div>Loading ...</div>
