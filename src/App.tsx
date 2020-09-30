@@ -19,7 +19,13 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
+        <p className="title">Forecast demo </p>
+        <p className="subtitle">CICD, Jest, React, api </p>
+      </header> */}
+      <div style={{ backgroundColor: "darkgray", minHeight: "100vh" }}>
+        <Forecast />
+        <Counter />
         <h1>conversion rate : $ USD - € EUR</h1>
         <h3>{conversion ? conversion : ''} : rate $ / €</h3>
         <h2>CI-CD</h2>
@@ -38,9 +44,7 @@ function App() {
           <span id="counter-value">{counter}</span>
           <span> €</span>
         </div>
-      </header>
-      <Forecast />
-      <Counter />
+      </div>
     </div>
   );
 }

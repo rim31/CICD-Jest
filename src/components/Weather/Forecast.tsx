@@ -52,35 +52,40 @@ export default function Forecast() {
 
   return (
     <div className="main-container">
-      <label className="text-center" >Search</label>
-      <div className="d-inline-flex">
-        <input id="search" name="search" type="text" className="search input  mx-2" placeholder="City..."
-          value={query} onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
-        <button id="btn-search" type="button" className="button is-info mt-2 mx-2" data-dismiss="modal"
-          //onClick={(e: any) => { console.log(location); setQuery(e.target.value); }}>Search</button>
-          onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
+      <label className="text-center" >Search a City</label>
+      <div className="field has-addons has-addons-centered">
+        <div className="control">
+          <input className="input" type="text" placeholder="City..." value={query}
+            onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
+        </div>
+        <div className="control">
+          <button className="button is-info"
+            onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
+        </div>
       </div>
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-          weather.main && (
-            <div className="city">
-              <h1>{moment().format("dddd, MMMM Do YYYY")}</h1>
-              <h2 className="city-name">
-                <span>{weather.name}</span>
-                <sup>{weather.sys.country} {countryToFlag(weather.sys.country)}</sup>
-              </h2>
-              <div className="city-temp">
-                <p>Now {Math.round(weather.main.temp)}<sup>°C</sup></p>
+      {
+        isLoading ? (
+          <progress className="progress is-small is-primary" max="100">loading</progress>
+        ) : (
+            weather.main && (
+              <div className="city">
+                <p className="subtitle">{moment().format("dddd, MMMM Do YYYY")}</p>
+                <p className="city-name">
+                  <span className="title">{weather.name}</span>
+                  <sup className="title">{weather.sys.country} {countryToFlag(weather.sys.country)}</sup>
+                </p>
+                <div className="city-temp ">
+                  <p className="title">Now {Math.round(weather.main.temp)}<sup>°C</sup></p>
+                </div>
+                <div className="info">
+                  <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
+                  <p style={{ color: "grey" }}>{weather.weather[0].description}</p>
+                </div>
+                <SevenDays weatherSevenDays={weatherSevenDays} />
               </div>
-              <div className="info">
-                <img className="city-icon" src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} />
-                <p style={{ color: "grey" }}>{weather.weather[0].description}</p>
-              </div>
-              <SevenDays weatherSevenDays={weatherSevenDays} />
-            </div>
+            )
           )
-        )}
-    </div>
+      }
+    </div >
   )
 }
