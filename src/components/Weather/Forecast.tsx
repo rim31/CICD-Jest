@@ -50,6 +50,11 @@ export default function Forecast() {
     }
   }
 
+  React.useEffect(() => {
+    clickSearch("paris");
+    console.log("debug");
+  })
+
   return (
     <div className="main-container">
       <label className="text-center" >Search a City</label>
@@ -59,8 +64,8 @@ export default function Forecast() {
             onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
         </div>
         <div className="control">
-          <button className="button is-info"
-            onClick={(e: any) => { console.log(location); clickSearch(location); }}>Search</button>
+          <button id="btn-search" className="button is-info"
+            onClick={(e: any) => { clickSearch(location) }}>Search</button>
         </div>
       </div>
       {
