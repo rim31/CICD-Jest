@@ -29,14 +29,14 @@ function App() {
 
         <Forecast />
         <a href="#myCard">
-          <button type="button" className="collapsible mt-5 has-text-centered" onClick={() => setCollapse(!collapse)}>
+          <button id="conversionHeader" type="button" className="collapsible mt-5 has-text-centered" onClick={() => setCollapse(!collapse)}>
             Open Conversion $/€ debug<i className="fa fa-caret-square-o-down"></i>
           </button>
         </a>
         {collapse && (<div className="content">
           <div className="card" id="myCard">
             <Counter />
-            <h1>conversion rate : $ USD - € EUR</h1>
+            <h1 id="titleConversion">conversion rate : $ USD - € EUR</h1>
             <h3>{conversion ? conversion : ''} : rate $ / €</h3>
             <h2>CI-CD</h2>
             {/* <Button label="click me please"></Button> 

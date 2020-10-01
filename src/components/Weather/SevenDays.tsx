@@ -36,25 +36,24 @@ export default function SevenDays(props: any) {
         <div className="column is-mobile is-tablet is-half">
           {
             state.data && (
-              state.data.daily.map((day: any, i: number) => <div key={i} className="d-flex ml-1 mr-1">
+              state.data.daily.map((day: any, i: number) => <div key={i} className="d-flex mb-1">
                 <div className="card">
                   <div className="card-image">
                   </div>
                   <div className="card-content">
                     <div className="media">
-                      <div className="media-left ">
-                        {/* <figure className="image is-64x64"> */}
-                        <img className="city-icon" src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt={day.weather[0].description} />
-                        {/* </figure> */}
+                      <div className="media-content has-text-left rows is-full">
+                        <time><div className="subtitle row">{moment().add(i, 'days').format("dddd")}</div></time>
+                        <time><div> {moment().add(i, 'days').format("MMMM Do")}</div></time>
                       </div>
-                      <div className="rows">
-                        <div className="media-content has-text-left row is-full">
-                          <span className="title is-4">{Math.round(day.temp.day)}<sup>°C</sup> </span>
-                          <span className="subtitle is-6">{day.weather[0].description}</span>
-                        </div>
-                        <div className="media-content has-text-left row is-full">
-                          <time><span className="subtitle">{moment().add(i, 'days').format("dddd")} :</span><span> {moment().add(i, 'days').format("MMMM Do")}</span></time>
-                        </div>
+                      <div className="media-content rows has-text-right is-full">
+                        <div className="subtitle is-6 row">{day.weather[0].description}</div>
+                        <div className="title is-4 row">{Math.round(day.temp.day)}<sup>°C</sup> </div>
+                      </div>
+                      <div className="media-right ">
+                        <figure className="image is-128x128">
+                          <img className="city-icon" src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} alt={day.weather[0].description} />
+                        </figure>
                       </div>
                     </div>
                   </div>
