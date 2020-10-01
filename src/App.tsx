@@ -5,7 +5,6 @@ import { convert } from './components/utils/Currency';
 // import Button from './components/button/Button';
 import Counter from './components/Counter/Counter';
 import Forecast from './components/Weather/Forecast';
-// import bulmaCollapsible from '@creativebulma/bulma-collapsible';
 
 
 function App() {
@@ -22,30 +21,26 @@ function App() {
   }, [])
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <p className="title">Forecast demo </p>
-        <p className="subtitle">CICD, Jest, React, api </p>
-      </header> */}
+      {/* <header className="App-header">header</header> */}
       <div className="" style={{
         background: `linear-gradient(to right, rgb(255, 167, 35), rgb(25, 97, 235))`,
         minHeight: "100vh"
       }}>
 
         <Forecast />
-
-        <button type="button" className="collapsible mt-5 has-text-centered" onClick={() => setCollapse(!collapse)}>
-          Open Conversion $/€ debug<i className="fa fa-angle-down"></i>
-        </button>
+        <a href="#myCard">
+          <button type="button" className="collapsible mt-5 has-text-centered" onClick={() => setCollapse(!collapse)}>
+            Open Conversion $/€ debug<i className="fa fa-caret-square-o-down"></i>
+          </button>
+        </a>
         {collapse && (<div className="content">
-          <div className="card">
+          <div className="card" id="myCard">
             <Counter />
             <h1>conversion rate : $ USD - € EUR</h1>
             <h3>{conversion ? conversion : ''} : rate $ / €</h3>
             <h2>CI-CD</h2>
             {/* <Button label="click me please"></Button> 
-                <p>
-                  Edit <code>src/App.tsx</code> and save to reload.
-                </p> */}
+                <p> Edit <code>src/App.tsx</code> and save to reload.</p> */}
             <div className="d-inline-flex p-2">
               <button id="increment-btn" className="button mr-2" style={{ border: "1px solid yellow", borderRadius: "8px", padding: "3px 3px" }}
                 onClick={() => setCounter(counter + 1)}>+ Increment</button>
@@ -57,6 +52,7 @@ function App() {
               <span id="counter-value">{counter}</span>
               <span> €</span>
             </div>
+            {/* <Button label="from App" /> */}
           </div>
         </div>)}
 

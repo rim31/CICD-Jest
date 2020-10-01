@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 // setup file
-import { shallow } from 'enzyme';
-// import { configure, shallow } from 'enzyme';
+import { mount } from 'enzyme';
+// import { configure, shallow } from 'enzyme';// shallow only for the 1rst node, full DOM rendering : mount
 // import Adapter from 'enzyme-adapter-react-16';
 // configure({ adapter: new Adapter() });
 
@@ -12,8 +12,10 @@ describe("Counter Testing", () => {
 
   let wrapper: any;
   beforeEach(() => {
-    wrapper = shallow(<App />);
-    //  const wrapper = shallow(<App />); // it will render the component App, not the sub component inside like Layout for example
+    // /use mount instead of shallow for full DOM renderin
+    wrapper = mount(<App />);
+    // console.log(wrapper.debug());//full Dom rendering
+    // wrapper = shallow(<App />); // it will render the component App, not the sub component inside like Layout for example
   })
 
   test('renders learn react link', () => {
