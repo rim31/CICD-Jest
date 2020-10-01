@@ -56,7 +56,7 @@ export default function Forecast() {
       <label className="text-center subtitle" >Search a city's weather</label>
       <div className="field has-addons has-addons-centered">
         <div className="control">
-          <input className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
+          <input id="cityInput" className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
             onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
         </div>
         <div className="control">
@@ -79,7 +79,7 @@ export default function Forecast() {
             <span className="icon">
               <i className="fas fa-home"></i>
             </span>
-            <div className="location" data-location>Weather in a city</div>
+            <div id="titleForecast" className="location" data-location>Weather in a city</div>
             <p className="subtitle">{moment().format("dddd, MMMM Do YYYY")}</p>
           </div>
           <div className="columns ">
@@ -105,7 +105,7 @@ export default function Forecast() {
           <div className="city-search-container mt-3">
             <div className="field has-addons has-addons-centered">
               <div className="control">
-                <input className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
+                <input id="cityInput2" className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
                   onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
               </div>
               <div className="control">
