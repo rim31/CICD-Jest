@@ -36,7 +36,7 @@ export default function Forecast() {
   }
 
   // for the click button search
-  const clickSearch = async (e: any) => {
+  const clickSearch = async (location: string) => {
     if (location) {
       setIsLoading(true);
       const res: any = await FetchData(location.toLowerCase());
@@ -50,11 +50,6 @@ export default function Forecast() {
       setIsLoading(false);
     }
   }
-
-  React.useEffect(() => {
-    clickSearch(location);
-    // eslint-disable-next-line
-  }, [location])
   return (
     <div className="main-container">
       <div className="container">
@@ -98,7 +93,7 @@ export default function Forecast() {
           <div className="city-search-container mt-3">
             <div className="field has-addons has-addons-centered">
               <div className="control">
-                <input id="cityInput2" className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
+                <input id="cityInput2" className="input" type="text" placeholder="City..." value={location} style={{ border: "1px solid black" }}
                   onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
               </div>
               <div className="control">
@@ -112,19 +107,19 @@ export default function Forecast() {
             <div className="detail column" style={{ backgroundColor: "whitesmoke" }}>
               <div className="control">
                   <button id="btn-search" className="button is-secondary"
-                    onClick={(e: any) => { setLocation('Turku') }}>Turku</button>
+                    onClick={(e: any) => { setLocation('Turku'); clickSearch('turku'); }}>Turku</button>
               </div>
             </div>
             <div className="detail column"  style={{ backgroundColor: "whitesmoke" }}>
               <div className="control">
                 <button id="btn-search" className="button is-secondary"
-                  onClick={(e: any) => { setLocation('Toulouse') }}>Toulouse</button>
+                  onClick={(e: any) => { setLocation('Toulouse'); clickSearch('toulouse'); }}>Toulouse</button>
               </div>
             </div>
             <div className="detail column" style={{ backgroundColor: "whitesmoke" }}>
               <div className="control">
                 <button id="btn-search" className="button is-secondary"
-                  onClick={(e: any) => { setLocation('Paris') }}>Paris</button>
+                  onClick={(e: any) => { setLocation('Paris'); clickSearch('paris'); }}>Paris</button>
               </div>
           </div>
           </div>
