@@ -51,20 +51,12 @@ export default function Forecast() {
     }
   }
 
+  React.useEffect(() => {
+    clickSearch(location);
+    // eslint-disable-next-line
+  }, [location])
   return (
     <div className="main-container">
-      <label className="text-center subtitle" >Search a city's weather</label>
-      <div className="field has-addons has-addons-centered">
-        <div className="control">
-          <input id="cityInput" className="input" type="text" placeholder="City..." value={query} style={{ border: "1px solid black" }}
-            onChange={(e) => { setQuery(e.target.value); setLocation(e.target.value); }} onKeyPress={search} />
-        </div>
-        <div className="control">
-          <button className="button is-info"
-            onClick={(e: any) => { clickSearch(location) }}>Search</button>
-        </div>
-      </div>
-      { isLoading && (<progress className="progress is-small is-primary" max="100">loading</progress>)}
       <div className="container">
         <div className="header">
           <div className="icon-container">
@@ -102,6 +94,7 @@ export default function Forecast() {
               </div>
             </div>
           </div>
+          <label className="text-center subtitle" >Search a city's weather</label>
           <div className="city-search-container mt-3">
             <div className="field has-addons has-addons-centered">
               <div className="control">
@@ -114,9 +107,30 @@ export default function Forecast() {
               </div>
             </div>
           </div>
-
+          <br/>
+        <div className="columns ">
+            <div className="detail column" style={{ backgroundColor: "whitesmoke" }}>
+              <div className="control">
+                  <button id="btn-search" className="button is-secondary"
+                    onClick={(e: any) => { setLocation('Turku') }}>Turku</button>
+              </div>
+            </div>
+            <div className="detail column"  style={{ backgroundColor: "whitesmoke" }}>
+              <div className="control">
+                <button id="btn-search" className="button is-secondary"
+                  onClick={(e: any) => { setLocation('Toulouse') }}>Toulouse</button>
+              </div>
+            </div>
+            <div className="detail column" style={{ backgroundColor: "whitesmoke" }}>
+              <div className="control">
+                <button id="btn-search" className="button is-secondary"
+                  onClick={(e: any) => { setLocation('Paris') }}>Paris</button>
+              </div>
+          </div>
+          </div>
         </div>
       </div>
+      { isLoading && (<progress className="progress is-small is-primary" max="100">loading</progress>)}
       <SevenDays weatherSevenDays={weatherSevenDays} />
     </div >
   )
