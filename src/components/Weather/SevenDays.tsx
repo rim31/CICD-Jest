@@ -16,7 +16,7 @@ export default function SevenDays(props: any) {
           state.data && (
             state.data.hourly.map((day: any, i: number) =>
               <div key={i} className="ml-1 mr-1" style={{ flex: "0 0 auto", padding: "0px 2px 0px 2px", justifyContent: "center" }}>
-                < div style={{ backgroundColor: "aquamarine", width: '110px', minHeight: "204px", borderRadius: "8px" }}>
+                < div style={{ backgroundColor: "#eafffd", backdropFilter: "blur(5px)", width: '110px', minHeight: "204px", borderRadius: "8px" }}>
                   <div className="city-temp">
                     {Math.round(day.temp)}<sup>°C</sup>
                   </div>
